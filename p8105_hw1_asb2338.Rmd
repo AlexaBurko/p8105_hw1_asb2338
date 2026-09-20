@@ -7,7 +7,9 @@ output: html_document
 
 # Section 0: Libraries
 ```{r}
+
 library(ggplot2)
+
 ```
 
 
@@ -31,5 +33,6 @@ The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
 ggplot(penguins, aes(x=bill_length_mm, y=flipper_length_mm, color=species)) + geom_point()
 
 ggsave(filename="Penguins Scatter Plot.png")
+
 ```
 

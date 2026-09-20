@@ -5,6 +5,12 @@ date: "2026-09-20"
 output: html_document
 ---
 
+# Section 0: Libraries
+```{r}
+library(ggplot2)
+```
+
+
 # Section 1: Load "penguins" dataset
 ```{r}
 
@@ -18,3 +24,12 @@ The species of penguin included in this dataset are `r unique(penguins$species)`
 The dataset has `r nrow(penguins)` observations and `r ncol(penguins)` variables.
 
 The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
+
+# Section 2: Create scatter plot
+```{r warning=FALSE}
+
+ggplot(penguins, aes(x=bill_length_mm, y=flipper_length_mm, color=species)) + geom_point()
+
+ggsave(filename="Penguins Scatter Plot.png")
+```
+

@@ -5,8 +5,16 @@ date: "2026-09-20"
 output: html_document
 ---
 
-# Section 0: Libraries
+# Section 1: Load "penguins" dataset
 ```{r}
-data("penguins", package = "palmerpenguins")
-```
 
+data("penguins", package = "palmerpenguins")
+
+```
+The names of the variables in this dataset are `r colnames(penguins)`.
+
+The species of penguin included in this dataset are `r unique(penguins$species)` and the islands included in this dataset are `r unique(penguins$island)`.
+
+The dataset has `r nrow(penguins)` observations and `r ncol(penguins)` variables.
+
+The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.

@@ -6,9 +6,10 @@ output: html_document
 ---
 
 # Section 0: Libraries
-```{r}
+```{r message=F}
 
 library(ggplot2)
+library(tidyverse)
 
 ```
 
@@ -36,3 +37,21 @@ ggsave(filename="Penguins Scatter Plot.png")
 
 ```
 
+# Section 3: Create data frame
+```{r}
+
+df = tibble(
+  num_var = rnorm(n=10),
+  log_var = num_var > 0,
+  char_var = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
+  factor_var = factor(c("dog", "cat", "bird", "dog", "dog", "cat", "bird", "bird", "cat", "cat")))
+
+```
+
+The mean num_var is `r mean(df$num_var)`. This worked.
+
+The mean log_var is `r mean(df$log_var)`. This worked.
+
+The mean char_var is `r mean(df$char_var)`. This did not work.
+
+The mean factor_var is `r mean(df$factor_var)`. This did not work.

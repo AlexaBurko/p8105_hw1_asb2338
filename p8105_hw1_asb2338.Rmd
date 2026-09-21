@@ -1,7 +1,7 @@
 ---
 title: "p8105_hw1_asb2338"
 author: "Alexa Burko"
-date: "2026-09-20"
+date: "2026-09-21"
 output: html_document
 ---
 
@@ -29,7 +29,7 @@ The dataset has `r nrow(penguins)` observations and `r ncol(penguins)` variables
 The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`.
 
 # Section 2: Create scatter plot
-```{r warning=FALSE}
+```{r message=F, warning=FALSE}
 
 ggplot(penguins, aes(x=bill_length_mm, y=flipper_length_mm, color=species)) + geom_point()
 
@@ -55,3 +55,14 @@ The mean log_var is `r mean(df$log_var)`. This worked.
 The mean char_var is `r mean(df$char_var)`. This did not work.
 
 The mean factor_var is `r mean(df$factor_var)`. This did not work.
+
+# Section 4: Convert variables
+```{r warning=FALSE}
+df$log_var <- as.numeric(df$log_var)
+  
+  df$char_var <- as.numeric(df$char_var)
+    
+    df$factor_var <- as.numeric(df$factor_var)
+```
+
+Only the logical variable was able to be converted to a numeric variable. The character variable and the factor variable cannot be converted to a numeric variable because the values contained in those two variables are not numbers. This helps explain why I could only take the means of the numeric variable and the logical variable, and not the means of the character variable and the factor variable, because you can only take the mean of numbers, not letters or words.
